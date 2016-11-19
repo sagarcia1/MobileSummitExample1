@@ -41,21 +41,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    //MARK: OpenURL
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey: Any] = [:]) -> Bool {
-        if let identifier = String(url.absoluteString.replacingOccurrences(of: "widget://movie?code=", with: "")) {
-            if let window = window, let nav = window.rootViewController as? UINavigationController {
-                    let details = nav.storyboard?.instantiateViewController(withIdentifier: "DetailMovie") as? DetailViewController
-                    details?.idMovie = identifier
-                    nav.pushViewController(details!, animated: true)
-                }
-
-        }
-        
-        return false
-    }
-
-
-
 }
 
